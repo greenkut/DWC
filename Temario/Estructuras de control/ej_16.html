@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_16</title>
+	</head>
+	<body>
+		<h2>Ejercicio 16</h2>
+
+		<p>Escriba un programa de JavaScript para calcular la suma de los dos enteros dados. Si los dos valores son iguales, devuelve el triple de su suma.</p>
+
+		<button onclick="suma()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			function suma(){
+				var result;
+
+				var num1 = prompt("Introduce el primer número: ");
+				while (num1.length == 0){
+					num1 = prompt("Introduce el número:");
+				}
+				num1 = parseInt(num1);
+
+				var num2 = prompt("Introduce el segundo número: ");
+				while (num2.length == 0){
+					num2 = prompt("Introduce el segundo número: ");
+				}
+				num2 = parseInt(num2);
+
+				result = num1 + num2;
+				if (num1 === num2) result *= 3;
+
+				document.getElementById("result").innerHTML = "La suma de los valores dados es igual a: " + result;
+			}
+		</script>
+	</body>
+</html>

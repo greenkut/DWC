@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Random Numbers</title>
+	</head>
+	<body>
+		<h2>Ejercicio de Números Aleatorios</h2>
+
+		<p id="result"></p>
+		<button onclick="random_numbers()"><b>Let's play</b></button>
+		<script>
+			
+			function random_numbers () {
+
+			var start = prompt("Introduce el inicio:");
+				while (start.length == 0 || isNaN(start)){
+					start = prompt("Introduce un primer número:");
+				}
+			start = parseInt(start);
+
+			var end = prompt("Introduce el fin:");
+				while (end.length == 0 || isNaN(end)){
+					end = prompt("Introduce un segundo número:");
+				}
+			end = parseInt(end);
+
+			var dif =  end - start;
+
+			var cont = prompt("Cuantos números aleatorios se desea:");
+				while (cont.length == 0 || isNaN(cont)){
+					cont = prompt("Introduce una cifra:");
+				}
+				while ((cont > dif)){
+					cont = prompt("ErrorCantidad, introduce un valor valido:");
+				}
+			cont = parseInt(cont);
+			
+			var numbers = new Array();
+			alert(numbers.length);
+			var number = Math.round(Math.random() * (dif) + start);
+			var error;
+
+			for (var i = 0; i < cont; i++) {
+				numbers.push(number);
+				while (comprobacion(numbers, number) == true) {
+					number = Math.round(Math.random() * (dif) + start);
+					comprobacion(numbers, number);
+				}
+			}
+
+			document.getElementById("result").innerHTML = numbers;
+			alert(numbers.length);
+			}
+
+			function comprobacion (array, x){
+				var error = false;
+				for (var i = 0; i < array.length; i++) {
+					if (array[i] == x){
+						error = true;
+						continue;
+					}
+				}
+				return error;
+			}
+
+		</script>
+	</body>
+</html>

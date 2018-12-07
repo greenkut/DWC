@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_11</title>
+	</head>
+	<body>
+		<h2>Ejercicio 11</h2>
+
+		<p>Escribe un programa que convierta los grados centígrados a grados Fahrenheit y viceversa.</p>
+
+		<button onclick="fahrenheit_to_celsius()"><b>°F => °C</b></button>
+		<button onclick="celsius_to_fahrenheit()"><b>°C => °F</b></button>
+		<p id="result"></p>
+
+		<script>
+			function fahrenheit_to_celsius(){
+				var result;
+
+				var fahrenheit = prompt("Introduce los grados fahrenheit: ");
+				while (fahrenheit.length == 0){
+					fahrenheit = prompt("Introduce los grados fahrenheit: ");
+				}
+				result = (fahrenheit - 32) / 1.8;
+				result = Math.round(result);
+
+				document.getElementById("result").innerHTML = result;
+			}
+			function celsius_to_fahrenheit(){
+				var result;
+
+				var celsius = prompt("Introduce los grados celsius: ");
+				while (celsius.length == 0){
+					celsius = prompt("Introduce los grados celsius: ");
+				}
+				result = (celsius * 1.8) + 32;
+				result = Math.round(result);
+
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>

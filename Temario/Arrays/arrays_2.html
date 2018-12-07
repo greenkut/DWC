@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>arrays_2</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>ARRAYS 2</h1>
+		<p>Crea un script que tome una serie de palabras ingresadas por el usuario y almacene esas palabras en un array. Posteriormente, manipula ese array para mostrar por ventana los siguientes datos: ·última palabra ingresada, ·primera palabra ingresada, ·el número de palabras del array, ·todas las palabras ordenadas alfabéticamente.</p>
+
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+
+			function start(){
+				inicio();
+			}
+
+			function inicio(){
+				var words = new Array();
+				var text = new Array();
+				keyboard(words, text);
+				firstword(words, text);
+				lastword(words, text);
+				wordslength(words, text);
+				sort(words);
+				show(words, text);
+			}
+
+			function firstword(words, text){
+				text[0] = words[0];
+				alert(text);
+			}
+
+			function lastword(words, text){
+				text[1] = words[words.length-1];
+				alert(text);
+			}
+
+			function wordslength(words, text){
+				text[2] = words.length;
+				alert(text);
+			}
+
+			function sort(words){
+				words.sort();
+			}
+
+			function show(words, text){
+
+				text += "<ul>";
+				for (var i = 0; i < words.length; i++) {
+					text += "<li>" + words[i] + "</li>"
+				}
+				text += "</ul>";
+
+				document.getElementById("result").innerHTML = text;
+			}
+
+			function keyboard(words){
+				var word = "";
+				do {
+					word = prompt("Introduce una palabra:");
+					while (word.length == 0){
+						word = prompt("Introduce una palabra:");
+					}
+					words.push(word);
+				} while (words.length != 5)
+			}
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>date_5</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>DATE 5</h1>
+	<p>Escribe una función de JavaScript para convertir una marca de tiempo Unix a tiempo.</p>
+	<button onclick="start()">Let's play</button>
+	<p id="result"><br></p>
+
+	<script>
+		function start () {
+			var unix = 1540399658;
+			document.getElementById("result").innerHTML = UNIX_timeConverter(unix);
+		}
+
+		function UNIX_timeConverter(unix){
+		  var a = new Date(unix * 1000);
+		  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		  var year = a.getFullYear();
+		  var month = months[a.getMonth()];
+		  var date = a.getDate();
+		  var hour = a.getHours();
+		  var min = a.getMinutes();
+		  var sec = a.getSeconds();
+		  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+		  return time;
+		}
+	</script>
+</body>
+</html>

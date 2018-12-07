@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DNI</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h2>Comprobador de DNI</h2>
+		<input type="text" name="dni" value="" placeholder="dni">
+		<button onClick="checking()" name="check">enviar</button>
+		<p id="error" style="color: red; font-weight: bold;" ></p>
+		
+	</body>
+	<script type="text/javascript" charset="utf-8">
+		
+		var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+		function checking () {
+			var dni = document.getElementsByName("dni")[0].value;
+
+			try {
+
+				if(dni.length  == "") throw new UserException("No se puede dejar el campo en blanco");
+
+				if(dni.charAt(dni.length - 1) != dni.charAt(dni.length - 1).toUpperCase()) throw new UserException("La letra está en miniscula");
+
+				if(dni.length > 9) throw new BusinessException("La longitud es demasiado larga", "N_LENGTH");
+			
+				if(dni.length < 9) throw new BusinessException("La longitud es corta", "N_LENGTH");
+
+				for(var i=0; i<dni.length-1;i++){
+					if(isNaN(parseInt(dni.charAt(i)))) throw new BusinessException("El DNI introducido contiene letras", "NONUMBER");
+				}
+
+				if(!isNaN(parseInt(dni.charAt(dni.length-1)))) throw new BusinessException("Él último carácter no es una letra", "NOLETTER");
+				
+
+				if(dni.charAt(dni.length - 1) != letras[dni.slice(0, dni.length - 1) % 23]) throw new BusinessException("La letra es incorrecta es distinta", "NOLETTER");
+
+				document.getElementById('error').innerHTML = "El DNI es Correcto";
+
+			} catch (error){
+				if(error.nombre == "UserException"){
+				document.getElementById('error').innerHTML = error.nombre + ": " + error.mensaje;
+
+				}else{
+					document.getElementById('error').innerHTML = error.nombre + ": " + error.mensaje + " Tipo: " + error.tipo;
+					error.send(error.tipo);
+				}
+			} finally {
+				alert("Hola");
+			} 
+
+			function UserException(mensaje) {
+   				this.mensaje = mensaje;
+   				this.nombre = "UserException";
+			}
+
+			function BusinessException(mensaje, tipo) {
+   				this.mensaje = mensaje;
+   				this.tipo = tipo;
+   				this.nombre = "BusinessException";
+			}
+
+			BusinessException.prototype.send = function(x){console.log(x);}
+
+		}
+
+	</script>
+</html>

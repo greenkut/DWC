@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_15</title>
+	</head>
+	<body>
+		<h2>Ejercicio 15</h2>
+
+		<p>Escriba un programa de JavaScript para obtener la diferencia entre un número determinado y 13. Si el número es mayor que 13, devuelva el doble de la diferencia absoluta.</p>
+
+		<button onclick="diference()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			function diference(){
+				var result;
+
+				var num = prompt("Introduce el número:");
+				while (num.length == 0){
+					num = prompt("Introduce el número:");
+				}
+
+				result = num - 13;
+				if (result > 13) result *= 2;
+
+				document.getElementById("result").innerHTML = "La diferencia entre el nº13 y el introducido por el usuario es: " + result;
+			}
+		</script>
+	</body>
+</html>

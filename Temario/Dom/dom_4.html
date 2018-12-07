@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom_4</title>
+	</head>
+	<body>
+		<p>Escriba una función llamada haciendo clic en un botón en una página para mostrar mediante mensaje emergente:<br>El número de enlaces en la página.<br>El primero y el último de estos enlaces.<br>Todos los enlaces.</p>
+
+		<input type="button" value="Get all links" onclick="getLinks()"/><br>
+    	<a href="https://www.w3schools.com/js/js_htmldom_document.asp" target="_blank">w3schools Reference</a><br>
+   		<a href="http://www.b92.net/info/rss/tehnopolis.xml" target="_blank">DOM Reference</a><br>
+   		<a href="http://portableapps.com/apps/internet/firefox_portable" target="_BLANK">Portable FF</a><br>
+
+	</body>
+
+	<script language="javascript" type="text/javascript">
+
+		function getLinks(){
+			var resultado = "";
+			var enlaces = document.getElementsByTagName("a");
+			resultado = "Número de enlaces: " + enlaces.length + " ";
+			var enlace1 = enlaces[0];
+			var enlaceu = enlaces[enlaces.length-1];
+			resultado += "Primer enlace: " + enlace1 + " Último enlace: " + enlaceu + " Todos los enlaces: ";
+			for (var i = 0; i < enlaces.length; i++) {
+				resultado += enlaces[i] + " ";
+			}
+			alert(resultado);
+
+		}
+</script>
+</html>

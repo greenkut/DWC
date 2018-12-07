@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_4</title>
+	</head>
+	<body>
+
+		<h2>Ejercicio 4</h2>
+
+		<p>Escribir un algoritmo que permita la extracción de las iniciales de una persona, cuyo apellido y nombre se introducirán por teclado.<br>Realiza dos versiones de este ejercicio para los casos siguientes:<br>
+			-Utilizando el método charArt();<br>
+			-Utilizando el método substring( , );</p>
+
+		<button onclick="Op_charArt()">charArt</button>
+		<button onclick="Op_substring()">substring</button>
+
+		<p id="demo"></p>
+
+		<script>
+			function Op_charArt() {
+				var txt;
+			    var name = prompt("Introduce el nombre:");
+			    var fullname = name.trim().toUpperCase();
+			    var acronym="";
+
+			    for (var i = 0; i < fullname.length; i++) {
+            		if (i == 0){
+                		acronym += fullname.charAt(0);
+            		} else if (name.charAt(i) == ' ') {
+            			acronym += fullname.charAt(i + 1);
+            		}
+        		}
+        		txt = "Las siglas son: " + acronym;
+				document.getElementById("demo").innerHTML = txt;
+			}
+
+			function Op_substring(){
+				var txt;
+			    var name = prompt("Introduce el nombre:");
+			    var fullname = name.trim().toUpperCase();
+			    var acronym = "";
+			    var x = "";
+
+			    acronym += fullname.substring(0,1);
+			    alert(acronym);
+
+			    for (var i = 0; i < fullname.length; i++) {
+			    	x = fullname.substring(i+1, i+2);
+			    	
+			    	if (x == " ") {
+
+			    		acronym +=  fullname.substring(i+2, i+3);
+			    		alert(acronym);
+			    	}
+			    }
+			    
+			    txt = "Las siglas son: " + acronym;
+				document.getElementById("demo").innerHTML = txt;
+			}
+		</script>
+	</body>
+</html>

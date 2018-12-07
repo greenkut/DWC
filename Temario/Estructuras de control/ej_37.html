@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_37</title>
+	</head>
+	<body>
+		<h2>Ejercicio 37</h2>
+
+		<p>Algoritmo que cree un nuevo string de uno dado con los 3 primeros carácteres en minúsculas .toLowerCase(). Si el string tiene menos de 3 carácteres en mayúsculas .toUpperCase().</p>
+
+		<button onclick="funcion()">PLAY</button>
+		<p id="demo"></p>
+		<script>
+			function funcion(){
+				var txt="";
+				var cadena = prompt("Introduce una cadena:");
+				var word = cadena.trim();
+
+				if (word.length < 3) txt = word.toUpperCase();
+				else txt = word.substring(0,3).toLowerCase();
+
+				document.getElementById("demo").innerHTML = txt;
+			}
+		</script>
+	</body>
+</html>

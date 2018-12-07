@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom_5</title>
+	</head>
+	<body>
+		<p>A partir del siguiente código:<br>Devuelve en el documento el nombre y apellido que introduzcas en el teclado. Se renueva cada vez.<br>Modifica el ejercicio anterior, incorporando un nuevo botón, que creará un nuevo elemento párrafo con el contenido del nombre y apellido.</p>
+
+		<form id="form1" onsubmit="getFormvalue()">
+			Nombre: <input type="text" name="fname" value="Jesus"><br>
+			Apellido: <input type="text" name="lname" value="Moya"><br>
+			<input type="submit" value="Submit">
+		</form>
+
+		<!--<input type="submit" id="greet" value=" Play " onClick="mod_color_size()">-->
+	</body>
+
+	<script language="javascript" type="text/javascript">
+
+		function getFormvalue(){
+
+			var nombre = document.getElementsByName("fname")[0].value;
+			var apellido = document.getElementsByName("lname")[0].value;
+			var resultado = nombre + " " + apellido;
+			alert(resultado);
+
+			var parrafo = document.createElement("p");
+			var contenido = document.createTextNode("resultado");
+			parrafo.appendChild(contenido);
+			document.body.appendChild(parrafo);
+
+			
+		}
+</script>
+</html>

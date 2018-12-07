@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_12</title>
+	</head>
+	<body>
+		<h2>Ejercicio 12</h2>
+
+		<p>Escriba un programa que cree una cadena que represente una cuadrícula de 4 x 4, usando caracteres de nueva línea para separar líneas. En cada posición de la cuadrícula allí es un espacio o un carácter "#". Los caracteres deben formar un ajedrez tablero. Debería mostrar algo como esto:</p>
+
+		<p id="result"></p>
+		<script>
+
+			var num = prompt("Introduce el número de filas de la cuadrícula:");
+			while (num.length == 0){
+					num = prompt("Introduce un número:");
+			}
+
+			var result="Cuadrícula de " + num + " filas";
+
+			document.getElementById("result").innerHTML = result;
+
+			for (var i = 0; i < num; i++) {
+				for (var j = 0; j < num; j++) {
+					document.write("*\n");
+				}
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_8</title>
+	</head>
+	<body>
+		<h2>Ejercicio 8</h2>
+
+		<p>Escribe un programa que consiga replicar este triángulo por consola.<br>
+			#<br>
+			# #<br>
+			# # #<br>
+			# # # #<br>
+			# # # # #<br>
+			# # # # # #<br>
+			-------------
+		</p>
+		<p id="result"></p>
+		<script>
+
+			var num = prompt("Introduce el número de filas del triángulo:");
+			while (num.length == 0){
+					num = prompt("Introduce un número:");
+			}
+
+			var result="Triángulo de " + num + " filas";
+
+			document.getElementById("result").innerHTML = result;
+
+			for (var i = 1; i <= num; i++) {
+				for (var j = 1; j <= i; j++){
+					document.write("#\n");
+				}
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>

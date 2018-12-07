@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_23</title>
+	</head>
+	<body>
+
+		<h2>Ejercicio 23</h2>
+
+		<p>Escribir un algoritmo que cree un nuevo string cambiando de posición la primera y última letra. Si la longitud del string es igual a 1, mostrará ese carácter.</p>
+
+		<button  onclick="funcion()">PLAY</button>
+		<p id="before"></p><p id="after"></p>
+
+		<script>
+			function funcion(){
+				var txt="";
+				var cadena = prompt("Introduce la cadena:");
+				var word = cadena.trim();
+
+				var first = word.substring(0,1); 
+				var middle = word.substring(1, word.length - 1);
+				var last = word.substring(word.length - 1, word.length);
+
+				if (word.length == 1) txt = word;
+				else txt += last + middle + first;
+
+
+				document.getElementById("before").innerHTML = "Antes: " + word;
+				document.getElementById("after").innerHTML = "Después: " +txt;
+			}
+		</script>
+
+	</body>
+</html>

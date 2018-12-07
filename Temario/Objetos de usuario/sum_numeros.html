@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="">
+		<title>sum_numeros</title>
+	</head>
+	<body>
+		<h1>Suma de numeros</h1>
+
+		<script type="text/javascript" charset="utf-8">
+			
+			do {
+				var num = prompt("Di un número.");
+			} while(isNaN(num));
+
+			alert(suma(num));
+
+			function suma(num){
+				if(num <= 1) return 1;
+				else return num + suma(num - 1);
+			}
+			
+		</script>
+	</body>
+</html>

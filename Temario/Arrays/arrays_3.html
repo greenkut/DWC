@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>arrays_3</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>ARRAYS 3</h1>
+		<p>Utiliza un array bidimensional para producir una tabla.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+			
+			function start(){
+				var city0 = new Array(12, 10, 11);
+				var city1 = new Array(5, 0, 2);
+				var city2 = new Array(10, 8, 10);
+				var cities = new Array(3);
+				cities[0] = city0;
+				cities[1] = city1;
+				cities[2] = city2;
+				var text="";
+
+				text += "<table width=200 border=1 cellpadding=1 cellspacing=1>"; 
+				for (var i = 0; i < cities.length; i++){ 
+				   	text += "<tr>"; 
+				   	text += "<td><b>Ciudad " + i + "</b></td>";
+				   	for (var j = 0; j < cities[i].length; j++){ 
+				      	text += "<td>" + cities[i][j] + "</td>";
+				   	} 
+				   	text += "</tr>";
+				} 
+				text += "</table>";
+				document.getElementById("result").innerHTML += text;
+			}
+
+		</script>
+	</body>
+</html>

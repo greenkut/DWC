@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_rombo/2</title>
+	</head>
+	<body>
+		<h2>Ejercicio medio rombo</h2>
+
+		<p>Dibujar medio rombo<br></p>
+
+		<p align="center">
+			
+			<script>
+
+			var num = prompt("Introduce el número de filas del medio rombo:");
+			while (num.length == 0){
+					num = prompt("Introduce un número:");
+			}
+
+			var result = "Medio Rombo de " + num + " filas";
+
+			for (var i = 0; i <= num; i++){
+		        for (var j = num; j >= 0; j--) 
+		        	document.write(" ");
+		        for (var z = 0; z < i + 1 ; z++) 
+		        	document.write(" # ");
+		       		document.write("<br>");
+		    }
+		</script>
+		</p>
+	</body>
+</html>

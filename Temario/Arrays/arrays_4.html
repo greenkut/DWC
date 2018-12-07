@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>arrays_4</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>ARRAYS 4</h1>
+		<p>Partiendo de la idea de array multidimensional anterior, crea una tabla con el horario de DAW. Utiliza todos los métodos de definición de arrays en el código.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+			
+			function start(){
+
+				var schedule = new Array(8);
+
+				var day_0 = new Array('Horas', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes');
+				var day_1 = new Array('14:20 / 15:15', 'DIW', 'TUT', '   ', '   ', 'DWS');
+				var day_2 = new Array('15:15 / 16:10', 'DIW', 'DWS', 'EIE', 'DWS', 'DWS');
+				var day_3 = new Array('16:10 / 17:05', 'EIE', 'DWS', 'EIE', 'DWS', 'DWS');
+				var day_4 = new Array('17:25 / 18:20', '2TE', 'DWS', 'DWC', 'DIW', 'DWC');
+				var day_5 = new Array('18:20 / 19:15', '2TE', 'DWC', 'DWC', 'DIW', 'DWC');
+				var day_6 = new Array('19:35 / 20:30', 'DAW', 'DWC', 'DIW', 'DAW', 'DWC');
+				var day_7 = new Array('20:30 / 21:25', 'DAW', '   ', 'DIW', 'DAW', '   ');
+
+				schedule[0] = day_0;
+				schedule[1] = day_1;
+				schedule[2] = day_2;
+				schedule[3] = day_3;
+				schedule[4] = day_4;
+				schedule[5] = day_5;
+				schedule[6] = day_6;
+				schedule[7] = day_7;
+
+				document.getElementById("result").innerHTML = printTable(schedule);
+			}
+
+			function printTable(array) {
+			    var result = "<table width=400 border=4 cellpadding=3 cellspacing=3 bordercolor=purple>";
+			    for(var i=0; i<array.length; i++) {
+			        result += "<tr align=center>";
+			        for(var j=0; j<array[i].length; j++){
+			            result += "<td align=center>"+array[i][j]+"</td>";
+			        }
+			        result += "</tr>";
+			    }
+			    result += "</table>";
+
+			    return result;
+			}
+
+			function createTable(tableData) {
+				var table = document.createElement('table');
+			    var header = document.createElement("tr");
+			    // get first row to be header
+			    var headers = tableData[0];
+
+			    // create table header
+			    headers.forEach(function(rowHeader){
+			    var th = document.createElement("th");
+			    th.appendChild(document.createTextNode(rowHeader));
+			    header.appendChild(th);
+			    });      
+			    console.log(headers);
+
+			    // insert table header 
+			    table.append(header);
+			    var row = {};
+			    var cell = {};
+
+			    // remove first row - header
+			    tableData.shift();
+			    tableData.forEach(function(rowData, index) {
+			    row = table.insertRow();
+			    console.log("indice: " + index);
+			    rowData.forEach(function(cellData) {
+			      cell = row.insertCell();
+			            cell.textContent = cellData;
+			    });
+			  });
+			  document.body.appendChild(table);
+			}	
+
+		</script>
+	</body>
+</html>

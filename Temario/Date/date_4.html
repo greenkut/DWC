@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>date_4</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>DATE 4</h1>
+		<p>Escriba una función de JavaScript para contar el número de días transcurridos desde el comienzo del año.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+
+			function start () {
+
+				var year = prompt("Introduce el año:");
+					while (year.length == 0 || isNaN(year)){
+						year = prompt("Introduce un año:");
+					}
+				year = parseInt(year);
+
+				var month = prompt("Introduce el mes:");
+					while ( month.length == 0 || isNaN(month)){
+						month = prompt("Introduce un mes:");
+					}
+				 month = parseInt(month - 1);
+
+				var day = prompt("Introduce el dia:");
+					while ( day.length == 0 || isNaN(day)){
+						day = prompt("Introduce un dia:");
+					}
+				 day = parseInt(day);
+
+				var fecha_actual = new Date (year, month, day);
+				var fecha_inicio = new Date(fecha_actual.getFullYear(), 0, 1);
+				document.getElementById("result").innerHTML = days_counter(fecha_actual, fecha_inicio);
+			}
+
+			function days_counter (fecha1, fecha2) {
+				var dif_milisegundos = fecha1 - fecha2;
+				var dias = Math.round(dif_milisegundos/3600/24/1000);
+				return dias;
+			}
+
+		</script>
+	</body>
+</html>

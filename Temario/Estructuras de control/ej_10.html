@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_10</title>
+	</head>
+	<body>
+		<h2>Ejercicio 10</h2>
+
+		<p>Escribir un algoritmo que multiplique o divida dos números. Tanto los números como el tipo de operación debe ser introducidos por el usuario.</p>
+
+		<button onclick="multiplicar()"><b>*</b></button>
+		<button onclick="dividir()"><b>/</b></button>
+		<p id="result"></p>
+
+		<script>
+			function multiplicar(){
+				var result;
+
+				var num1 = prompt("Introduce el primer número:");
+				while (num1.length == 0){
+					num1 = prompt("Introduce el primer número:");
+				}
+
+				var num2 = prompt("Introduce el segundo número:");
+				while (num2.length == 0){
+					num2 = prompt("Introduce el segundo número:");
+				}
+
+				result = num1 * num2;
+				document.getElementById("result").innerHTML = result;
+			}
+
+			function dividir(){
+				var result;
+
+				var num1 = prompt("Introduce el primer número:");
+				while (num1.length == 0){
+					num1 = prompt("Introduce el primer número:");
+				}
+
+				var num2 = prompt("Introduce el segundo número:");
+				while (num2.length == 0){
+					num2 = prompt("Introduce el segundo número:");
+				}
+
+				result = num1 / num2;
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>

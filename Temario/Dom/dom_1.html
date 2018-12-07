@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom_1</title>
+	</head>
+	<body>
+		Enter your name:
+		<input type="text" id="inputName" name="inputName">
+		<input type="submit" id="greet" value=" Greet " onClick="displayMessage()">
+	</body>
+
+	<script language="javascript" type="text/javascript">
+
+		function getIntro(){
+			var date = new Date();
+			time = date.getHours();
+			if (time < 12){
+				msg = "Good morning ";
+			} else {
+				msg = "Good afternoon ";
+			}
+			return msg;
+		}
+
+		function displayMessage(){
+			var getName = document.getElementById("inputName").value;
+			message = getIntro() + getName + "!";
+			alert(message);
+		}
+
+</script>
+
+</html>

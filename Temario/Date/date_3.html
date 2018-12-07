@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>date_3</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>DATE 3</h1>
+		<p> Escriba una función de JavaScript para comprobar si una fecha es un fin de semana. Nota: Use la definición estándar de sábado / domingo de un fin de semana.</p>
+
+		<p id="result"></p>
+		<button onclick="start()">Let's play</button>
+
+		<script>
+
+			function start () {
+
+				var year = prompt("Introduce el año:");
+					while (year.length == 0 || isNaN(year)){
+						year = prompt("Introduce un año:");
+					}
+				year = parseInt(year);
+
+				var month = prompt("Introduce el mes:");
+					while ( month.length == 0 || isNaN(month)){
+						month = prompt("Introduce un mes:");
+					}
+				 month = parseInt(month - 1);
+
+				var day = prompt("Introduce el dia:");
+					while ( day.length == 0 || isNaN(day)){
+						day = prompt("Introduce un dia:");
+					}
+				 day = parseInt(day);
+
+				var week_day = is_weekend(year, month, day);
+				var week_day_name;
+
+				if (week_day >= 0 || week_day < 5) {
+					week_day_name = "Entre semana";
+				} else {
+					week_day_name = "Fin de semana";
+				}
+
+				document.getElementById("result").innerHTML = week_day_name;
+
+			}
+
+			function is_weekend (year, month, day) {
+
+				var date = new Date (year, month, day);
+				return date.getDay();
+			}
+
+		</script>
+	</body>
+</html>

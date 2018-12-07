@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_2</title>
+	</head>
+	<body>
+
+		<h2>Ejercicio 2</h2>
+
+		<p>Calcular y mostrar la superficie y volumen de una esfera cuyo radio se introduce por teclado.</p>
+
+		<button onclick="Calcular()">Start</button>
+
+		<p id="demo"></p>
+
+		<script>
+			function Calcular() {
+			    var txt;
+			    var r = prompt("Introduce el radio");
+			    if (r == null) {
+			        txt = "User cancelled the prompt.";
+			    } else {
+			        var s = 3.14159265 * (r*r)
+					var v = (4/3) * 3.14159265 * (r*r*r);
+					txt = "La superficie de la esfera es: " + s + " y el volumen es: " + v;
+			    }
+			    document.getElementById("demo").innerHTML = txt;
+			}
+		</script>
+	</body>
+</html>

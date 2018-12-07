@@ -1,0 +1,102 @@
+DOM
+
+Tipos de nodos
+
+-Document: nodo raíz del que derivan todos los demás nodos del aárbol.
+-Element: representa cada una de las etiquetas XHTML. Es el único nodo que puede contener atributos y el únco del que pueden derivar nodos.
+-Attr: representa cada uno de los atributos de las etiquetas XHTML, uno por cada par "atributo = valor".
+-Text: nodo que contiene el texto encerrado por una etiqueta XHTML.
+-Comment: representa los comentarios incluidos en la página XHTML.
+
+Acceso directo a los nodos
+
+-getElementsByTagName(nombreEtiqueta){
+
+obtiene todos los elementos de la página XHTML cuya etiqueta sea igual que el parámetro que se le pasa a la función.
+
+·var parrafos = document.getElementsByTagName("p") - obtiene todos los párrafos de la página.
+La función devuelve un array con todos los nodos que cumplen la condición de que su etiqueta coincide con el parámetro proporcionado.
+
+·var primerParrafo = parrafos[0] - obtiene el primer párrafo de la página
+· for (var i=0; i < parrafos.length;  i++){	var parrafo = parrafos[i]} - recorrer todos los párrafos de la página
+}
+
+-getElementsByName(atributoName){
+
+obtiene todos los elementos cuyo atributo name sea igual que el párametro que se le pasa a la función.
+·var parrafoEspecial = document.getElementsByName("especial") | <p name="especial">..<p> - obtiene directamente el único párrafo con el nombre indicado.
+}
+
+-getElementById(atributoId){
+
+obtiene el elemento XHTML cuyo atributo id coincide con el parámetro indicado en la función.
+·var cabecera = document.getElementById("cabecera") | <div id="cabecera"></div>
+}
+
+Creación de elementos XHTML 
+
+1.Crear nodo de tipo Element
+var parrafo = document.createElement("p");
+ 
+2.Crear nodo de tipo Text
+var contenido = document.createTextNode("Hola Mundo!");
+ 
+3.Añadir el nodo Text como hijo del nodo Element
+parrafo.appendChild(contenido);
+ 
+4.Añadir el nodo Element como hijo de la pagina
+document.body.appendChild(parrafo);
+
+Eliminacion de elementos XHTML
+
+var parrafo = document.getElementById("provisional") | <p id="provisional">..</p>
+parrafo.parentNode.removeChild(parrafo);
+
+La función removeChild() requiere como parámetro el nodo que se va a eliminar.
+La forma más segura y rápida de acceder al nodo padre de un elemento es mediante la propiedad nodoHijo.parentNode.
+
+Acceso directo a los atributos XHTML
+
+Para acceder al valor de un atributo, se indica el nombre del atributo XHTML detrás del nombre del nodo.
+·var enlace = document.getElementById("enlace") | <a id="enlace" href="http://www..com">enlace</a> | alert(enlace.href) - obtiene de forma directa la dirección del enlace
+
+-propiedades CSS {
+
+Para obtener el valor de cualquier propiedad CSS del nodo, se debe utilizar el atributo style.
+var imagen = document.getElementById("imagen") | <img id="imagen" style="margin:0;"/> | alert(imagen.style.margin) - obtiene el valor del atributo margin de la imagen
+var parrafo = document.getElementById("parrafo") | <p id="parrafo" style="font-weight: bold;">..</p> | alert(parrafo.style.fontWeight) - muestra "bold"
+var parrafo = document.getElementById("parrafo") | <p id="parrafo" class="normal">..</p> | alert(parrafo.className) - obtiene el valor del atributo clase
+
+}
+
+function botones(){
+
+			//Borro el botón de empezar
+			var boton = document.getElementById("start");
+			boton.parentNode.removeChild(boton);
+
+			//Creo el cuadro de coordenadas
+			var coordenadas = document.createElement("input");
+			coordenadas.type = 'text';
+			coordenadas.className = 'coordenadas';
+			coordenadas.name = 'coordenadas';
+			coordenadas.value = '';
+			coordenadas.placeholder = 'coordenadas';
+			coordenadas.size = '10';
+
+			//Creo el boton disparar
+			var botonDisparar = document.createElement("button");
+			botonDisparar.onclick = function disparar(){alert("hola pixaa");}
+			botonDisparar.className = 'button disparar';
+			botonDisparar.innerHTML = 'Disparar';
+
+			//Aquí instancio el componente padre
+   			var padre = document.getElementById("padding");
+
+   			//Añado los nodos como hijos del elemento
+			padre.appendChild(coordenadas);
+			padre.appendChild(botonDisparar);
+
+			//document.write("<input type='text' name='coordenadas' value='' class='coordenadas' placeholder='coordenadas' size='10'>");
+			//document.write("<button onclick='diparar()' class='button disparar'>Disparar</button>");
+		}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>factorial</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>Factorial de un número</h1>
+		<p>Partiendo de la idea de array multidimensional anterior, crea una tabla con el horario de DAW. Utiliza todos los métodos de definición de arrays en el código.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+			
+			function start(){
+				var num = parseInt(prompt("Introduce un número:"));
+				document.getElementById("result").innerHTML = factorial(num);
+			}
+
+			function factorial(num){
+
+				if (num == 0) {
+					return 1;
+				} else {
+					return num * factorial(num - 1);
+				}
+			}
+
+		</script>
+	</body>
+</html>

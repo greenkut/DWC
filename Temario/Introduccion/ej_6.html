@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_6</title>
+	</head>
+	<body>
+		<h2>Ejercicio 6</h2>
+
+		<p>Escribir un programa que proporcione los números pares dentro de un rango dado por el teclado.</p>
+
+		<button onclick="pars()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			function pars(){
+				var result="";
+
+				var start = prompt("Introduce un inicio:");
+				while (start.length == 0){
+					start = prompt("ERROR, introduce un número:");
+				}
+				start = parseInt(start);
+
+				var end = prompt("Introduce un final:");
+				while (end.length == 0){
+					end = prompt("ERROR, introduce un número:");
+				}
+				end = parseInt(end);
+				
+				for (var i = start + 1; i < end; i++) {
+					if (i % 2 === 0) {
+						result += i + " ";
+					}
+				}
+				document.getElementById("result").innerHTML = "Los n pares: " + result;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>date_8</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>DATE 8</h1>
+		<p>Escriba una función de JavaScript para obtener una representación numérica completa de un año (4 dígitos).</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+
+			function start () {
+				var date = keyboard();
+				document.getElementById("result").innerHTML = date.getFullYear();
+			}
+
+			function keyboard () {
+				var year = prompt("Introduce el año:");
+					while (year.length == 0 || isNaN(year)){
+						year = prompt("Introduce un año:");
+					}
+				year = parseInt(year);
+
+				var month = prompt("Introduce el mes:");
+					while ( month.length == 0 || isNaN(month)){
+						month = prompt("Introduce un mes:");
+					}
+				month = parseInt(month - 1);
+
+				var day = prompt("Introduce el dia:");
+					while ( day.length == 0 || isNaN(day)){
+						day = prompt("Introduce un dia:");
+					}
+				day = parseInt(day);
+				var date = new Date(year, month, day);
+				return date;
+			}
+		</script>
+</body>
+</html>

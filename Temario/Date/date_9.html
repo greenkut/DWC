@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>date_9</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>DATE 9</h1>
+		<p>Escriba una función de JavaScript para obtener diferencias de tiempo en minutos entre dos fechas.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+		<script>
+
+			function start () {
+				var dt1 = new Date(2018, 10, 26, 17, 30, 0);
+				alert(dt1);
+				var dt2 = new Date(2018, 10, 26, 18, 0, 0);
+				alert(dt2);
+				document.getElementById("result").innerHTML = diff_minutes(dt1, dt2);
+			}
+
+			function diff_minutes (date1, date2) {
+				var diff = date2 - date1;
+				var minutes = Math.round(diff / 60000);
+				return minutes + " minutes";
+			}
+		</script>
+	</body>
+</html>

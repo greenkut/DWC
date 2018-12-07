@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom_2</title>
+	</head>
+	<body>
+		<p>Realiza un programa en javascript que modifique el color del primer elemento de tipo "p" de una web. Utiliza un boton que llame a una función cambio_rojo().</p>
+		<p>Este es el elemento p nº2</p>
+		<p>Este es el elemento p nº3</p>
+		<input type="submit" id="greet" value=" Play " onClick="cambio_rojo()">
+	</body>
+
+	<script language="javascript" type="text/javascript">
+
+		function cambio_rojo(){
+			var parrafos = document.getElementsByTagName("p");
+			var primerParrafo = parrafos[0];
+			primerParrafo.style.color = "red";
+		}
+</script>
+</html>

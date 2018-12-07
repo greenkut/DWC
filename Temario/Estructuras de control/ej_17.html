@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_17</title>
+	</head>
+	<body>
+		<h2>Ejercicio 17</h2>
+
+		<p>Escriba un programa de JavaScript para calcular la diferencia absoluta entre un número específico y 19. Devuelve el triple de su diferencia absoluta si el número especificado es mayor que 19.</p>
+
+		<button onclick="diference()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			function diference(){
+				var result;
+
+				var num = prompt("Introduce el número:");
+				while (num.length == 0){
+					num = prompt("Introduce el número:");
+				}
+
+				result = num - 19;
+				if (num > 19) result *= 3;
+
+				document.getElementById("result").innerHTML = "La diferencia entre el nº19 y el introducido por el usuario es: " + result;
+			}
+			function (){
+				var result;
+				var celsius = prompt("Introduce los grados celsius: ");
+
+
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>

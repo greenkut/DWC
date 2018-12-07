@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>date_1</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>DATE 1</h1>
+		<p>Escriba una función de JavaScript para obtener el número de días en un mes.</p>
+
+		<p id="result"></p>
+		<button onclick="start()">Let's play</button>
+
+		<script>
+
+			function start () {
+
+				var year = prompt("Introduce el año:");
+					while (year.length == 0 || isNaN(year)){
+						year = prompt("Introduce un año:");
+					}
+				year = parseInt(year);
+
+				var  month = prompt("Introduce el mes:");
+					while ( month.length == 0 || isNaN( month)){
+						 month = prompt("Introduce un mes:");
+					}
+				 month = parseInt( month);
+
+				var date = month_days(year, month);
+				document.getElementById("result").innerHTML = date;
+
+			}
+
+			function month_days (year, month) {
+				return new Date (year, month, 0).getDate();
+
+			}
+		</script>
+	</body>
+</html>

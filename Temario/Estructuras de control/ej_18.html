@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_18</title>
+	</head>
+	<body>
+		<h2>Ejercicio 18</h2>
+
+		<p>Escriba un programa JavaScript para verificar dos números dados y devuelva verdadero si uno de los números es 50 o si su suma es 50, utilizando un solo if.</p>
+
+		<button onclick="diference()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			function diference(){
+				var result = false;
+
+				var num1 = prompt("Introduce el primer número:");
+				while (num1.length == 0){
+					num1 = prompt("Introduce el primer número:");
+				}
+				num1 = parseInt(num1);
+
+				var num2 = prompt("Introduce el segundo número:");
+				while (num2.length == 0){
+					num2 = prompt("Introduce el segundo número:");
+				}
+				num2 = parseInt(num2);
+
+				if (num1 == 50 || num2 == 50 || num1 + num2 == 50) {
+					result = true;
+				}
+
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>

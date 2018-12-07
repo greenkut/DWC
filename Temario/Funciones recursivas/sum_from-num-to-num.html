@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>sum_from-num-to-num</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>Suma de n numeros hasta un numero</h1>
+		<p>Calcula la suma de los números hasta un número dado.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+			
+			function start(){
+				var num = parseInt(prompt("Introduce un número:"));
+				document.getElementById("result").innerHTML = sum_num(num);
+			}
+
+			function sum_num(num){
+
+				if (num == 1) {
+					return 1;
+				} else {
+					return num + sum_num(num - 1);
+				}
+			}
+
+		</script>
+	</body>
+</html>

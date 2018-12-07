@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>arrays_1</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>ARRAYS 1</h1>
+		<p>Dado el siguiente código, crear las funciones necesarias para mostrar un array ordenado.</p>
+		<button onclick="start()">Let's play</button>
+		<p id="result"><br></p>
+
+		<script>
+
+			function start(){
+				pedirOrdenarMostrar();
+			}
+
+			function pedirOrdenarMostrar(){
+				var numeros = new Array();
+				pedirNumero(numeros);
+				ordenar(numeros);
+				mostrar(numeros);
+			}
+
+			function pedirNumero(numeros){
+				do {
+					var num = prompt("Introduce un número:");
+					while (num.length == 0 || isNaN(num)){
+						num = prompt("Introduce un número:");
+					}
+					num = parseInt(num);
+					numeros.push(num);
+				} while (numeros.length != 5)
+			}
+
+			function ordenar(numeros){
+				numeros.sort(function comparar (n1, n2) {return n1 - n2});
+			}
+
+			function mostrar(numeros){
+				for (var i = 0; i < numeros.length; i++) {
+					document.getElementById("result").innerHTML += numeros[i] + " ";
+				}
+			}
+
+		</script>
+	</body>
+</html>

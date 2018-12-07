@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>objetos_2</title>
+		<link rel="stylesheet" href="">
+	</head>
+	<body>
+		<h1>OBJETOS 2</h1>
+		<p>Escriba un programa JavaScript para obtener el volumen de un Cilindro con cuatro decimales usando clases de objetos. En un primer momento crearás la función cilindro con los datos de altura y radio. Posteriormente añadirás la función volumen por medio de “prototype”.
+		Volumen de un cilindro: V = π R2 h.</p>
+		<p id="result"><br></p>
+
+		<script type="text/javascript" charset="utf-8">
+
+			function Cilindro (altura, radio){
+				this.altura = altura;
+				this.radio =  radio;
+			}
+
+			Cilindro.prototype.volumen = function () {
+				return (Math.PI * Math.pow(this.radio, 2) * this.altura).toFixed(4);
+			}
+
+			var cilindro = new Cilindro(10, 5);
+   			document.getElementById("result").innerHTML = cilindro.volumen();
+
+		</script>
+	</body>
+</html>

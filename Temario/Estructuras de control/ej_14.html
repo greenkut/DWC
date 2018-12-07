@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ej_14</title>
+	</head>
+	<body>
+		<h2>Ejercicio 14</h2>
+
+		<p>Escribe un programa que obtenga la extensión de un fichero. Ver split() y pop().</p>
+
+		<button onclick="file_extension()"><b>PLAY</b></button>
+		<p id="result"></p>
+
+		<script>
+			
+			function getFileExtension(filename) {
+  				return filename.split('.').pop();
+			}
+			
+
+			function file_extension(){
+				var result;
+
+				var file = prompt("Introduce el nombre del fichero: ");
+				while (file.length == 0){
+					file = prompt("Introduce el nombre del fichero: ");
+				}
+
+				result = getFileExtension(file);
+
+				document.getElementById("result").innerHTML = result;
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom_3</title>
+	</head>
+	<body>
+		<p>Crea un botón que modifique las propiedades color y tamaño de fuente del siguiente elemento:</p>
+		<p id ='text'>Me gusta JavaScript</p>
+		<input type="submit" id="greet" value=" Play " onClick="mod_color_size()">
+	</body>
+
+	<script language="javascript" type="text/javascript">
+
+		function mod_color_size(){
+			var linea = document.getElementById("text");
+			linea.style.color = "blue";
+			linea.style.fontSize = "18px";
+		}
+</script>
+</html>
