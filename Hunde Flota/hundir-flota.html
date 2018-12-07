@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hunde la Flota</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var mar = 
+			[[1,0,1,0,0,0,0,0,0,0]
+			,[0,0,1,0,0,1,1,1,1,0]
+			,[0,0,1,0,0,0,0,0,0,0]
+			,[0,0,0,0,0,0,0,0,0,0]
+			,[0,1,0,0,0,0,0,1,1,0]
+			,[0,0,0,0,0,0,0,0,0,0]
+			,[1,1,1,1,0,0,0,0,0,0]
+			,[0,0,0,0,0,0,1,0,1,0]
+			,[0,1,1,0,0,0,1,0,1,0]
+			,[0,0,0,0,1,0,1,0,0,0]];
+
+		var letras = ["A","B","C","D","E","F","G","H","I","J",];
+		var disparos = 0;
+		var hundidos = 0;
+		var contaHundidos = 0;
+
+		/*Lancha=1 , Destructor=2, Crucero=3, Acorazado=4*/
+		//var barcos = [crear_barco(1), crear_barco(2), crear_barco(3), crear_barco(4)];
+		
+		
+		
+		start();
+
+		function start(){
+			// MUESTRA el diseño inicial
+			document.body.innerHTML = '';
+			document.write("<link rel='stylesheet' type='text/css' href='hundir-flota.css' />");
+			document.write("<div id='page-container'>");
+			document.write("<h1>Hunde la flota</h1>");
+			document.write("<div id='aside'>");
+			document.write("<div id='padding'>");
+			panel();
+			document.write("</div>");
+			document.write("</div>");
+			document.write("<div id='content'>");
+			tablero();
+			document.write("</div>");
+			document.write("</div>");
+		}
+
+		function panel(){
+			// MUESTRA el PANEL con las OPCIONES
+			document.write("<input type='text' id='coordenadas' class='coordenadas' placeholder='coordenadas' size='10' maxlength='2' autofocus>");
+			document.write("<button onclick='disparar()' class='button disparar'>Disparar</button>");
+			document.write("<p>Disparos: "+ disparos +"</p>");
+		}
+
+		function tablero(){
+			// MUESTRA EL TABLERO de los BARCOS
+			document.write("<table>");
+			document.write("<tr>");
+			document.write("<td class='margen'></td>");
+			for (var i = 0; i < 10; i++) {
+				document.write("<td class='margen'>"+i+"</td>");
+			}
+			document.write("</tr>");
+
+			for (var i = 0; i < 10; i++) {
+				document.write("</tr>");
+				document.write("<td class='margen'>"+letras[i]+"</td>");
+				for (var j = 0; j < 10; j++) {
+
+					// SI NO se ha BUSCADO AÚN en esas COORDENADAS
+					if (mar[i][j] == 0) {
+						document.write("<td class='nada'></td>");
+
+					// Hay un barco, pero lo ocultamos
+					} else if (mar[i][j] == 1) {
+						document.write("<td class='blanco'></td>");
+
+					// COORDENADAS = AGUA
+					} else if (mar[i][j] == 2) {
+						document.write("<td class='agua'></td>");
+					
+					// COORDENADAS = IMPACTO
+					} else if (mar[i][j] == 3) {
+						document.write("<td class='impacto'></td>");
+					}
+
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+		}
+
+		/*function coordenadas_barcos(){
+			var coordenadasBarco;
+
+			for (var i = 0; i < barcos.length; i++) {
+				do {
+					coordenadasBarco = crear_barco(i);
+				} while(colision(coordenadas));
+				coordenadas_barcos[i] = coordenadasBarco;
+			}
+		}
+		
+
+		// Sitúa el barco aleatoriamente (en vertical u horizontal)
+		function crear_barco(casillas_barco){
+
+			//genera un número entre 0 y 1
+			var sentido = Math.round(Math.random() * 2);
+			var fila, columna;
+			var nuevasCoordenadas_barco = [];
+
+			// HORIZONTAL
+			if (sentido === 1) {
+
+				//GENERA NUMERO ENTRE 0 y el tamaño del TABLERO (puede empezar en cualquier fila)
+                fila = Math.floor(Math.random() * 10);
+
+                //GENERA NUMERO ENTRE 0 y el tamaño del TABLERO - LONGITUD BARCO (para que no se salga del panel por la derecha)
+                columna = Math.floor(Math.random() * (10 - casillas_barco));
+
+            // VERTICAL
+            } else {
+
+            	//GENERA NUMERO ENTRE 0 y el tamaño del TABLERO - LONGITUD BARCO (para que no se salga por abajo)
+                fila = Math.floor(Math.random() * (10 - casillas_barco)); 
+
+                //GENERA NUMERO ENTRE 0 y el tamaño del TABLERO
+                columna = Math.floor(Math.random() * 10); //Puede empezar en cualquier columna
+            }
+
+            for (var i = 0; i < casillas_barco; i++) {
+
+            	// HORIZONTAL
+            	if (sentido === 1) {
+                    nuevasCoordenadas_barco.push(fila + "" + (columna + i)); // Ponemos "" para que lo convierta en un string y no sume los valores numéricos
+                // VERTICAL 
+                } else {
+                    nuevasCoordenadas_barco.push((fila + i) + "" + columna); //vertical
+                }
+            }
+            return nuevasCoordenadas_barco;
+		}
+
+		colocar_barcos();
+
+		function colocar_barcos (){
+
+			var coordenadas_barcos = [];
+			alert(barcos.length)
+			
+
+			alert(barcos[0]);
+			alert(barcos[1]);
+			alert(barcos[2]);
+			alert(barcos[3]);
+
+            var result = colision(barcos[0]);
+            alert(result);
+
+            for (var i = 0; i < posiciones_barcos.length; i++) {
+            	var fila = posiciones_barcos[i].charAt(0);
+            	var columna = posiciones_barcos[i].charAt(1);
+
+            	mar[fila][columna]=1;
+            }
+		}
+
+		
+		// FUNCION que comprueba SI EXISTE una COLISION ANTES DE COLOCAR un BARCO, recibe un ARRAY con las COORDENADAS del BARCO (ej: 13, 23, 33)
+		function colision (coordenadas){
+
+			// DEVUELVE TRUE SI EXISTE una COLISION ENTRE las COORDENADAS de los BARCOS
+			for (var i = 0; i < barcos.length; i++) {
+				var barco = barcos[i];
+				alert(barcos[i]);
+				for (var j = 0; j < coordenadas.length; j++) {
+					if (barco.indexOf(coordenadas[j]) >= 0) { // EXISTE COLISION
+                        return true;
+                    }
+				}
+			}
+			return false;
+		}
+		*/
+
+		function disparar(){
+
+			//Rescatamos las COORDENADAS del input
+			var coordenadas = document.getElementById("coordenadas").value;
+
+			// Si las COORDENADAS NO SON de la LONGITUD requerida
+			if (coordenadas < 2) {
+				alert("Longitud insuficiente");
+
+			// Si las COORDENADAS SON de la LONGITUD requerida	
+			} else {
+				
+				//Rescatamos la LETRA y el NUMERO de las COORDENADAS
+				var letra = coordenadas.charAt(0).toUpperCase();
+				var c_horizontal = coordenadas.charAt(1);
+
+				//Si LETRA O NUMERO NO COINCIDEN CON LOS ESPERADOS
+				if (!letras.includes(letra) || isNaN(c_horizontal)) {
+					alert("Coordenadas no validas");
+
+				//Si LETRA Y NUMERO COINCIDEN CON LOS ARRAYS
+				} else {
+
+					var c_vertical = letras.indexOf(letra);
+					
+					//SI YA SE HAN BUSCADO ESAS COORDENADAS
+					if (mar[c_vertical][c_horizontal] == 2 || mar[c_vertical][c_horizontal] == 3) {
+						alert("Esas coordenadas ya han sido descubiertas");
+
+					//NO HAY BARCO = AGUA
+					} else if (mar[c_vertical][c_horizontal] == 0){	
+
+						alert("Es agua");
+
+						mar[c_vertical][c_horizontal] = 2;
+						disparos++;
+					
+					//HAY BARCCO = FUEGO
+					} else if (mar[c_vertical][c_horizontal] == 1){
+
+						alert("UN BARCO!!");
+						mar[c_vertical][c_horizontal] = 3;
+						disparos++;
+
+						hundidos++;
+						fin(hundidos);
+					}	
+				}
+			}
+			// RECARGAMOS EL DOCUMENTO PARA ACTUALIZAR LAS CASILLAS
+			start();
+		}
+
+		function fin(hundidos){
+			//SI TODOS LOS BARCOS ESTAN HUNDIDOS
+			if (hundidos == 23) {
+				alert("¡Has ganado! Has terminado la partida en "+disparos+" disparos.");
+			}
+		}
+	</script>
+</body>
+</html>
+
